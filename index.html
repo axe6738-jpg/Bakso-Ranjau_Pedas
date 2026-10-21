@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="siteTitle">Bakso Ranjau Cak Yat</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600..900;1,9..144,600..900&family=Outfit:wght@400..700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css?v=6">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <a href="#beranda" class="logo-wrapper">
+                <img id="navLogoImg" src="img/logo-toko.jpg" alt="Logo Toko" class="logo-img" onerror="this.src='https://placehold.co/40x40/8B0000/FFFFFF?text=Bakso'">
+                <span class="logo" id="navLogo">Bakso Ranjau Cak Yat</span>
+            </a>
+
+            <!-- MENU NAVIGASI (di HP jadi bar bawah) -->
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#beranda" class="aktif"><i class="fa-solid fa-house"></i><span>Beranda</span></a></li>
+                <li><a href="#tentang"><i class="fa-solid fa-store"></i><span>Tentang</span></a></li>
+                <li><a href="#produk"><i class="fa-solid fa-bowl-food"></i><span>Produk</span></a></li>
+                <li><a href="#kontak"><i class="fa-solid fa-location-dot"></i><span>Kontak</span></a></li>
+                <li><a href="ranjau.html"><i class="fa-solid fa-pepper-hot"></i><span>Kisah Ranjau</span></a></li>
+            </ul>
+
+            <div class="nav-aksi">
+                <div class="theme-dropdown-container">
+                    <button class="theme-dropdown-btn" id="btnThemeDropdown" onclick="toggleThemeDropdown(event)" aria-label="Pilih tema warna">
+                        <i class="fa-solid fa-palette"></i><span class="teks">Tema</span><i class="fa-solid fa-chevron-down" style="font-size:.6rem"></i>
+                    </button>
+                    <div class="theme-dropdown-menu" id="themeDropdownMenu">
+                        <button class="theme-option-btn" onclick="pilihTemaMenu('merahpedas')"><span class="theme-badge" style="background-color:#8B0000;"></span> Merah Pedas</button>
+                        <button class="theme-option-btn" onclick="pilihTemaMenu('krem')"><span class="theme-badge" style="background-color:#FAEDCD;"></span> Krem Klasik</button>
+                        <button class="theme-option-btn" onclick="pilihTemaMenu('abu')"><span class="theme-badge" style="background-color:#E2E8F0;"></span> Abu Modern</button>
+                        <button class="theme-option-btn" onclick="pilihTemaMenu('kuning')"><span class="theme-badge" style="background-color:#FEF3C7;"></span> Kuning Hangat</button>
+                        <button class="theme-option-btn" onclick="pilihTemaMenu('hijausejuk')"><span class="theme-badge" style="background-color:#D1FAE5;"></span> Hijau Sejuk</button>
+                        <button class="theme-option-btn" onclick="pilihTemaMenu('ungu')"><span class="theme-badge" style="background-color:#EDE9FE;"></span> Ungu Elegan</button>
+                    </div>
+                </div>
+                <a href="#" id="btnOpenOwner" class="btn-owner" aria-label="Menu owner" onclick="return window.bukaOwner?bukaOwner():(alert('owner.js tidak terbaca. Unggah owner.js ke folder yang sama dengan index.html.'),false)"><i class="fa-solid fa-lock"></i><span class="teks">Owner</span></a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="hero-band">
+            <i class="fa-solid fa-pepper-hot float-deco d1"></i>
+            <i class="fa-solid fa-fire float-deco d2"></i>
+            <i class="fa-solid fa-pepper-hot float-deco d3"></i>
+            <i class="fa-solid fa-fire-flame-curved float-deco d4"></i>
+
+            <section id="beranda">
+                <div class="hero">
+                    <div class="hero-content">
+                        <div class="welcome"><span class="welcome-hi">Selamat Datang di Website Kami! 👋</span><span class="welcome-type"><span id="welcomeTyping"></span><b class="caret"></b></span></div>
+                        <span class="label-kecil" id="dispLabelKecil"><i class="fa-solid fa-fire"></i> Warung Bakso Ranjau Cak Yat</span>
+                        <h1 id="dispNamaUsaha">Bakso Ranjau Cak Yat</h1>
+                        <p id="dispSlogan">Bakso Ranjau Cak Yat — Berani Pedas, Siap Ketagihan! 🌶️</p>
+                        <div class="hero-buttons">
+                            <a href="#" id="btnPesanWaHero" class="btn btn-primary" target="_blank"><i class="fa-brands fa-whatsapp"></i> Pesan via WA</a>
+                            <a href="#produk" class="btn btn-secondary"><i class="fa-solid fa-utensils"></i> Lihat Produk</a>
+                        </div>
+                    </div>
+                    <div class="hero-image">
+                        <div class="hero-image-wrapper">
+                            <img id="dispFotoUtama" src="img/foto-utama.jpg" alt="Bakso Ranjau Cak Yat" onerror="this.src='https://placehold.co/400x360/8B0000/FFFFFF?text=Bakso+Ranjau+Cak+Yat'">
+                            <div class="apung-wrap" aria-hidden="true">
+                                <svg class="uap" style="left:34%" viewBox="0 0 16 36"><path d="M8 35 C0 28 14 22 8 14 C4 9 10 4 8 0" fill="none" stroke="#FFF6EC" stroke-width="3" stroke-linecap="round"/></svg>
+                                <svg class="uap" style="left:50%;animation-delay:-1s" viewBox="0 0 16 36"><path d="M8 35 C0 28 14 22 8 14 C4 9 10 4 8 0" fill="none" stroke="#FFF6EC" stroke-width="3" stroke-linecap="round"/></svg>
+                                <svg class="uap" style="left:66%;animation-delay:-2s" viewBox="0 0 16 36"><path d="M8 35 C0 28 14 22 8 14 C4 9 10 4 8 0" fill="none" stroke="#FFF6EC" stroke-width="3" stroke-linecap="round"/></svg>
+                                <svg class="ba ba1" viewBox="0 0 80 80"><circle cx="40" cy="40" r="34" fill="#D9A066" stroke="#17110E" stroke-width="3"/><circle cx="40" cy="40" r="23" fill="#F4D9AE" stroke="#17110E" stroke-width="2"/><path d="M27 48 Q33 27 54 29 Q45 36 40 46 Q34 54 27 48Z" fill="#E63946" stroke="#17110E" stroke-width="2" stroke-linejoin="round"/><path d="M54 29 q4-5 8-3" stroke="#2F9E44" stroke-width="3" fill="none" stroke-linecap="round"/><g fill="#B97A45"><circle cx="16" cy="38" r="2.2"/><circle cx="62" cy="58" r="2.2"/><circle cx="28" cy="66" r="2"/><circle cx="60" cy="22" r="2"/><circle cx="20" cy="54" r="1.8"/></g></svg>
+                                <svg class="ba ba2" viewBox="0 0 60 60"><path d="M12 40 Q15 14 45 12 Q37 27 31 39 Q23 54 12 40Z" fill="#E63946" stroke="#17110E" stroke-width="3" stroke-linejoin="round"/><path d="M45 12 q6-6 10-2" stroke="#2F9E44" stroke-width="4" fill="none" stroke-linecap="round"/><path d="M20 31 Q24 23 34 21" stroke="#fff" stroke-opacity=".55" stroke-width="2.5" fill="none" stroke-linecap="round"/></svg>
+                                <svg class="ba ba3" viewBox="0 0 40 40"><circle cx="20" cy="20" r="17" fill="#D9A066" stroke="#17110E" stroke-width="3"/><g fill="#B97A45"><circle cx="13" cy="15" r="2.4"/><circle cx="26" cy="24" r="2.4"/><circle cx="17" cy="27" r="1.8"/><circle cx="27" cy="13" r="1.8"/></g></svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div class="kuah" aria-hidden="true">
+            <svg class="o2" viewBox="0 0 1200 56" preserveAspectRatio="none"><path d="M0 0H1200V38Q1150 58 1050 38T900 38T750 38T600 38T450 38T300 38T150 38T0 38Z"/></svg>
+            <svg class="o1" viewBox="0 0 1200 56" preserveAspectRatio="none"><path d="M0 0H1200V26Q1150 50 1050 26T900 26T750 26T600 26T450 26T300 26T150 26T0 26Z"/></svg>
+            <span class="bola b1"></span><span class="bola b2"></span><span class="bola b3"></span>
+        </div>
+
+        <div class="fakta-container">
+            <div class="fakta-card" id="dispFakta1">
+                <div class="fakta-icon-badge"><i class="fa-solid fa-drumstick-bite"></i></div>
+                <span id="dispFakta1Teks">Daging sapi pilihan berkualitas tinggi</span>
+            </div>
+            <div class="fakta-card" id="dispFakta2">
+                <div class="fakta-icon-badge"><i class="fa-solid fa-pepper-hot"></i></div>
+                <span id="dispFakta2Teks">Kuah segar & pedas mantap setiap hari</span>
+            </div>
+            <div class="fakta-card" id="dispFakta3">
+                <div class="fakta-icon-badge"><i class="fa-solid fa-leaf"></i></div>
+                <span id="dispFakta3Teks">Tanpa bahan pengawet buatan</span>
+            </div>
+        </div>
+
+        <div class="pita pita-teks" aria-hidden="true">AWAS RANJAU &nbsp;⚠&nbsp; PEDAS TERSEMBUNYI &nbsp;⚠&nbsp; AWAS RANJAU &nbsp;⚠&nbsp; PEDAS TERSEMBUNYI &nbsp;⚠&nbsp; AWAS RANJAU &nbsp;⚠&nbsp; PEDAS TERSEMBUNYI &nbsp;⚠&nbsp; AWAS RANJAU &nbsp;⚠&nbsp; PEDAS TERSEMBUNYI &nbsp;⚠&nbsp; AWAS RANJAU &nbsp;⚠&nbsp; PEDAS TERSEMBUNYI &nbsp;⚠&nbsp; AWAS RANJAU &nbsp;⚠&nbsp; PEDAS TERSEMBUNYI &nbsp;⚠&nbsp; AWAS RANJAU &nbsp;⚠&nbsp; PEDAS TERSEMBUNYI &nbsp;⚠&nbsp; AWAS RANJAU &nbsp;⚠&nbsp; PEDAS TERSEMBUNYI &nbsp;⚠&nbsp; </div>
+
+        <section id="tentang">
+            <div class="section-header">
+                <span class="section-kicker"><i class="fa-solid fa-fire"></i> Kenali Kami <i class="fa-solid fa-fire"></i></span>
+                <h2 class="section-title">Tentang Usaha</h2>
+            </div>
+            
+            <div class="tentang-grid-container">
+                <div class="tentang-card-main">
+                    <p class="tentang-cerita-text" id="dispCerita">Bakso Ranjau Cak Yat merupakan usaha kuliner yang dirintis sejak tahun 2014. Usaha ini berawal dari pemilihan bakso sebagai menu utama karena bakso merupakan makanan yang digemari banyak orang dan cocok dinikmati dalam berbagai kondisi cuaca, baik saat panas maupun dingin. Cita rasa bakso yang lezat dan kuahnya yang hangat selalu mampu menggugah selera, sehingga menjadikannya pilihan makanan yang tidak lekang oleh waktu.</p>
+                    
+                    <div class="stats-grid-new">
+                        <div class="stat-card-item">
+                            <div class="stat-icon-wrapper"><i class="fa-solid fa-user-tie"></i></div>
+                            <div>
+                                <div class="stat-info-title">Pemilik</div>
+                                <div class="stat-info-val" id="dispPemilik">Mahfudi</div>
+                            </div>
+                        </div>
+                        <div class="stat-card-item">
+                            <div class="stat-icon-wrapper"><i class="fa-solid fa-calendar-check"></i></div>
+                            <div>
+                                <div class="stat-info-title">Berdiri</div>
+                                <div class="stat-info-val" id="dispBerdiri">2014</div>
+                            </div>
+                        </div>
+                        <div class="stat-card-item">
+                            <div class="stat-icon-wrapper"><i class="fa-solid fa-users"></i></div>
+                            <div>
+                                <div class="stat-info-title">Karyawan</div>
+                                <div class="stat-info-val" id="dispKaryawan">-</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tentang-photo">
+                    <span class="tentang-photo-badge"><i class="fa-solid fa-triangle-exclamation"></i></span>
+                    <img id="dispFotoTentang" src="img/foto-utama.jpg" alt="Foto Usaha Bakso" class="tentang-img-main" onerror="this.src='https://placehold.co/420x300/8B0000/FFFFFF?text=Kuliner+Bakso+Singosari'">
+                </div>
+            </div>
+
+            <div class="keunggulan-grid-new">
+                <div class="keunggulan-card-item">
+                    <div class="keunggulan-badge-icon kb-1"><i class="fa-solid fa-pepper-hot"></i></div>
+                    <div class="keunggulan-text-title" id="dispKeunggulan1Teks">Rasa pedas gurih alami resep asli</div>
+                </div>
+                <div class="keunggulan-card-item">
+                    <div class="keunggulan-badge-icon kb-2"><i class="fa-solid fa-shield-halved"></i></div>
+                    <div class="keunggulan-text-title" id="dispKeunggulan2Teks">Kemasan higienis & rapi</div>
+                </div>
+                <div class="keunggulan-card-item">
+                    <div class="keunggulan-badge-icon kb-3"><i class="fa-solid fa-hand-holding-dollar"></i></div>
+                    <div class="keunggulan-text-title" id="dispKeunggulan3Teks">Harga terjangkau untuk semua kalangan</div>
+                </div>
+            </div>
+        </section>
+
+        <div class="pita pita-garis" aria-hidden="true"></div>
+
+        <div class="band-dark">
+            <section id="produk">
+                <div class="section-header">
+                    <span class="section-kicker"><i class="fa-solid fa-pepper-hot"></i> Menu Andalan <i class="fa-solid fa-pepper-hot"></i></span>
+                    <h2 class="section-title">Produk Pilihan</h2>
+                </div>
+                <p class="keterangan-produk" id="dispKeteranganProduk">Melayani pesan antar area Malang dan sekitarnya serta pengiriman luar kota.</p>
+                <div class="produk-grid" id="produkGrid"></div>
+            </section>
+        </div>
+
+        <section id="kisah" class="reveal">
+            <div class="kisah-card">
+                <div>
+                    <h3>Kenapa namanya "Ranjau"? Ada kejutan pedas di dalamnya.</h3>
+                    <p>Kenali kisah, rasa, dan level pedas Bakso Ranjau di halaman khusus. Ada slider cek level pedasmu juga.</p>
+                    <a href="ranjau.html" class="btn"><i class="fa-solid fa-pepper-hot"></i> Baca Kisah Ranjau</a>
+                </div>
+                <i class="fa-solid fa-pepper-hot goyang"></i>
+            </div>
+        </section>
+
+        <section id="cara-pesan" class="reveal">
+            <div class="section-header">
+                <span class="section-kicker"><i class="fa-solid fa-fire"></i> Gampang Banget <i class="fa-solid fa-fire"></i></span>
+                <h2 class="section-title">Cara Pesan</h2>
+            </div>
+            <div class="langkah-grid">
+                <div class="langkah"><i class="fa-solid fa-utensils"></i><h3>Pilih menu</h3><p>Lihat daftar produk di atas dan tentukan bakso favoritmu.</p></div>
+                <div class="langkah"><i class="fa-brands fa-whatsapp"></i><h3>Chat WhatsApp</h3><p>Klik tombol Pesan, pesan otomatis langsung terisi.</p></div>
+                <div class="langkah"><i class="fa-solid fa-bowl-food"></i><h3>Nikmati</h3><p>Pesanan diantar atau ambil langsung di warung.</p></div>
+            </div>
+        </section>
+
+        <section id="angka" class="reveal">
+            <div class="angka-grid">
+                <div class="angka-item"><b data-count id="cntTahun">0</b><span>Tahun melayani pelanggan</span></div>
+                <div class="angka-item"><b data-count id="cntMenu">0</b><span>Menu andalan</span></div>
+                <div class="angka-item"><b data-count="7">0</b><span>Hari buka dalam seminggu</span></div>
+            </div>
+        </section>
+
+        <div class="pita pita-teks" aria-hidden="true">AWAS RANJAU &nbsp;⚠&nbsp; PEDAS TERSEMBUNYI &nbsp;⚠&nbsp; AWAS RANJAU &nbsp;⚠&nbsp; PEDAS TERSEMBUNYI &nbsp;⚠&nbsp; AWAS RANJAU &nbsp;⚠&nbsp; PEDAS TERSEMBUNYI &nbsp;⚠&nbsp; AWAS RANJAU &nbsp;⚠&nbsp; PEDAS TERSEMBUNYI &nbsp;⚠&nbsp; AWAS RANJAU &nbsp;⚠&nbsp; PEDAS TERSEMBUNYI &nbsp;⚠&nbsp; AWAS RANJAU &nbsp;⚠&nbsp; PEDAS TERSEMBUNYI &nbsp;⚠&nbsp; AWAS RANJAU &nbsp;⚠&nbsp; PEDAS TERSEMBUNYI &nbsp;⚠&nbsp; AWAS RANJAU &nbsp;⚠&nbsp; PEDAS TERSEMBUNYI &nbsp;⚠&nbsp; </div>
+
+        <section id="kontak">
+            <div class="section-header">
+                <span class="section-kicker"><i class="fa-solid fa-fire"></i> Mampir Yuk <i class="fa-solid fa-fire"></i></span>
+                <h2 class="section-title">Kontak & Lokasi</h2>
+            </div>
+            <div class="kontak-container">
+                <div class="kontak-info">
+                    <h3 style="font-family: var(--font-judul); color: var(--warna-utama); font-size: 1.3rem; margin-bottom: 0.8rem;">Hubungi Kami</h3>
+                    <ul>
+                        <li>
+                            <div class="icon-circle"><i class="fa-solid fa-location-dot"></i></div>
+                            <div>
+                                <strong style="display: block; color: var(--warna-teks);">Alamat Usaha:</strong>
+                                <span id="dispAlamat" style="color: #4A5568; font-size: 0.88rem;">Jl. Morotanjek No.206, Pangetan, Pagentan, Kec. Singosari, Kabupaten Malang, Jawa Timur 65153</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="icon-circle"><i class="fa-brands fa-whatsapp"></i></div>
+                            <div>
+                                <strong style="display: block; color: var(--warna-teks);">WhatsApp Pemesanan:</strong>
+                                <span id="dispNoWaTeks" style="color: #4A5568; font-size: 0.88rem;">0896-6122-2111</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="icon-circle"><i class="fa-solid fa-clock"></i></div>
+                            <div style="width: 100%;">
+                                <strong style="display: block; color: var(--warna-teks);">Jam Operasional:</strong>
+                                <table class="tabel-jam">
+                                    <tr><td>Senin - Jumat</td><td id="dispJamWeekday">10:00 - 21:00 WIB</td></tr>
+                                    <tr><td>Sabtu - Minggu</td><td id="dispJamWeekend">10:00 - 21:00 WIB</td></tr>
+                                </table>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="icon-circle"><i class="fa-solid fa-hashtag"></i></div>
+                            <div>
+                                <strong style="display: block; color: var(--warna-teks);">Media Sosial:</strong>
+                                <span id="dispMedsos" style="color: #4A5568; font-size: 0.88rem;">Instagram: @bakso_ranjau_cakyat</span>
+                            </div>
+                        </li>
+                    </ul>
+                    <div style="margin-top: 1.5rem;">
+                        <a href="#" id="btnChatKontak" class="btn btn-primary" target="_blank"><i class="fa-brands fa-whatsapp"></i> Chat WhatsApp</a>
+                    </div>
+                </div>
+
+                <div style="display: flex; flex-direction: column; gap: 1rem;">
+                    <h3 style="font-family: var(--font-judul); color: var(--warna-utama); font-size: 1.3rem;">Peta Lokasi</h3>
+                    <div class="map-box" id="mapContainer">
+                        <div style="padding: 1rem; color: #666;">Memuat Peta...</div>
+                    </div>
+                    <a href="https://maps.google.com/?q=Singosari+Malang" id="dispGoogleMaps" target="_blank" class="btn btn-secondary" style="text-align: center;"><i class="fa-solid fa-map-location-dot"></i> Google Maps</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; <span id="dispTahunFooter">2026</span> <strong><span id="dispNamaUsahaFooter">Bakso Ranjau Cak Yat</span></strong> &middot; Di buat oleh Kelompok 1</p>
+    </footer>
+
+    <div class="maskot" id="maskot" data-ex="senyum" role="button" tabindex="0" aria-label="Cak Yat, ketuk untuk ngobrol">
+        <svg class="maskot-svg" viewBox="0 0 100 110" aria-hidden="true">
+            <circle class="wajah" cx="50" cy="72" r="30" stroke="#17110E" stroke-width="3"/>
+            <g fill="#B97A45"><circle cx="30" cy="78" r="2"/><circle cx="70" cy="82" r="2"/><circle cx="62" cy="93" r="2"/><circle cx="36" cy="93" r="2"/></g>
+            <g stroke="#17110E" stroke-width="3" fill="#fff" stroke-linejoin="round">
+                <circle cx="32" cy="26" r="13"/><circle cx="50" cy="19" r="15"/><circle cx="68" cy="26" r="13"/>
+                <rect x="25" y="32" width="50" height="16" rx="4"/>
+            </g>
+            <path d="M43 45 Q46 36 59 37 Q53 42 50 46 Q47 49 43 45Z" fill="#E63946" stroke="#17110E" stroke-width="1.6" stroke-linejoin="round"/>
+            <path d="M59 37 q3-4 7-3" stroke="#2F9E44" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+            <g class="mata">
+                <ellipse cx="39" cy="68" rx="6" ry="7" fill="#fff" stroke="#17110E" stroke-width="2"/><ellipse cx="61" cy="68" rx="6" ry="7" fill="#fff" stroke="#17110E" stroke-width="2"/>
+                <circle cx="40" cy="69" r="3" fill="#17110E"/><circle cx="62" cy="69" r="3" fill="#17110E"/>
+            </g>
+            <path d="M32 58 Q39 54 45 58 M55 58 Q61 54 68 58" stroke="#17110E" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+            <circle cx="31" cy="80" r="4" fill="#E63946" opacity=".35"/><circle cx="69" cy="80" r="4" fill="#E63946" opacity=".35"/>
+            <path d="M40 78 Q45 73 50 77 Q55 73 60 78 Q55 81 50 79 Q45 81 40 78Z" fill="#17110E"/>
+            <path class="mt mt-senyum" d="M41 85 Q50 93 59 85" stroke="#17110E" stroke-width="3" fill="none" stroke-linecap="round"/>
+            <g class="mt mt-nyengir"><path d="M38 83 Q50 99 62 83Z" fill="#fff" stroke="#17110E" stroke-width="3" stroke-linejoin="round"/><path d="M41 88 H59" stroke="#17110E" stroke-width="2"/></g>
+            <g class="mt mt-pedas"><ellipse cx="50" cy="89" rx="7" ry="7" fill="#7A1010" stroke="#17110E" stroke-width="3"/><path d="M46 92 Q50 88 54 92" fill="#E63946"/></g>
+            <g class="keringat" fill="#7CC7FF" stroke="#17110E" stroke-width="1.6"><path d="M78 56 q5 7 0 11 q-5-4 0-11z"/><path d="M20 64 q4 6 0 9 q-4-3 0-9z"/></g>
+        </svg>
+        <div class="maskot-bubble" id="maskotBubble"><button type="button" class="maskot-tutup" id="maskotTutup" aria-label="Sembunyikan Cak Yat">&times;</button><span id="maskotTeks"></span></div>
+    </div>
+
+    <a href="#" id="waFloat" class="wa-float" target="_blank" aria-label="WhatsApp Chat"><i class="fa-brands fa-whatsapp"></i></a>
+
+    <div class="modal-overlay" id="modalPassword">
+        <div class="modal-content" style="max-width: 380px; text-align: center;">
+            <button class="modal-close" onclick="closeModal('modalPassword')">&times;</button>
+            <h3 style="margin-bottom: 0.8rem; color: var(--warna-utama);"><i class="fa-solid fa-user-shield"></i> Akses Owner</h3>
+            <p style="font-size: 0.85rem; margin-bottom: 1rem; color: #666;">Masukkan password pemilik untuk mengedit:</p>
+            <div class="form-group">
+                <input type="password" id="inputPassOwner" placeholder="Password Owner" style="text-align: center; font-size: 1rem;">
+            </div>
+            <p id="errorPass" style="color: #E53E3E; font-size: 0.8rem; display: none; margin-bottom: 0.8rem;">Password salah!</p>
+            <button onclick="checkOwnerPass()" class="btn btn-primary" style="width: 100%;">Masuk Panel</button>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="modalDashboard">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal('modalDashboard')">&times;</button>
+            <h2 style="margin-bottom: 1rem; color: var(--warna-utama); font-family: var(--font-judul);"><i class="fa-solid fa-pen-to-square"></i> Panel Kelola Website</h2>
+
+            <div style="display: flex; flex-wrap: wrap; gap: 0.3rem; border-bottom: 2px solid #E2E8F0; margin-bottom: 1rem;">
+                <button class="tab-btn active" onclick="switchTab(event, 'tabProduk')">Produk</button>
+                <button class="tab-btn" onclick="switchTab(event, 'tabFotoLogo')">Logo/Foto Toko</button>
+                <button class="tab-btn" onclick="switchTab(event, 'tabKontakJam')">Kontak</button>
+                <button class="tab-btn" onclick="switchTab(event, 'tabPassword')">Password Owner</button>
+                <button class="tab-btn" onclick="switchTab(event, 'tabPublikasi')">Publikasi</button>
+            </div>
+
+            <!-- TAB 1: Produk -->
+            <div id="tabProduk" class="tab-content active">
+                <button onclick="openFormProduk()" class="btn btn-primary" style="margin-bottom: 1rem;"><i class="fa-solid fa-plus"></i> Tambah Produk</button>
+                <table class="admin-table">
+                    <thead><tr><th>Foto</th><th>Nama</th><th>Harga</th><th>Aksi</th></tr></thead>
+                    <tbody id="tbodyProdukAdmin"></tbody>
+                </table>
+            </div>
+
+            <!-- TAB 2: Logo/Foto Toko -->
+            <div id="tabFotoLogo" class="tab-content">
+                <form onsubmit="saveInfoUsaha(event)">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>Logo Toko</label>
+                            <input type="file" id="fileLogoToko" accept="image/*" onchange="previewLogoPhoto(this)">
+                            <input type="hidden" id="editLogoToko">
+                            <img id="previewLogoToko" class="image-preview" src="" alt="" style="margin-top:.5rem;">
+                        </div>
+                        <div class="form-group">
+                            <label>Foto Utama</label>
+                            <input type="file" id="fileFotoUtama" accept="image/*" onchange="previewMainPhoto(this)">
+                            <input type="hidden" id="editFotoUtama">
+                            <img id="previewFotoUtama" class="image-preview" src="" alt="" style="margin-top:.5rem;">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%; margin-top:1rem;">Simpan Foto/Logo</button>
+                </form>
+            </div>
+
+            <!-- TAB 3: Kontak -->
+            <div id="tabKontakJam" class="tab-content">
+                <form onsubmit="saveInfoUsaha(event)">
+                    <div class="form-grid">
+                        <div class="form-group"><label>No WA</label><input type="text" id="editNoWa" required></div>
+                        <div class="form-group"><label>Teks WA</label><input type="text" id="editNoWaTeks" required></div>
+                    </div>
+                    <div class="form-group"><label>Alamat</label><input type="text" id="editAlamat" required></div>
+                    <div class="form-grid">
+                        <div class="form-group"><label>Jam Weekday</label><input type="text" id="editJamWeekday" required></div>
+                        <div class="form-group"><label>Jam Weekend</label><input type="text" id="editJamWeekend" required></div>
+                    </div>
+                    <div class="form-grid">
+                        <div class="form-group"><label>Medsos</label><input type="text" id="editMedsos" required></div>
+                        <div class="form-group"><label>Link Maps</label><input type="text" id="editLinkMaps" required></div>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">Simpan Kontak</button>
+                </form>
+            </div>
+
+            <!-- TAB 4: Password Owner -->
+            <div id="tabPassword" class="tab-content">
+                <form onsubmit="saveInfoUsaha(event)">
+                    <div class="form-group">
+                        <label>Ganti Password Owner</label>
+                        <input type="text" id="editOwnerPass" placeholder="Masukkan password baru">
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">Simpan Password</button>
+                </form>
+            </div>
+
+            <!-- TAB 5: Publikasi -->
+            <div id="tabPublikasi" class="tab-content">
+                <p style="font-size:.88rem;margin-bottom:1rem;">Perubahan dari panel ini tersimpan di browser ini. Agar terlihat di semua perangkat: unduh <b>aaa.js</b>, lalu ganti file aaa.js di GitHub. Password baru juga ikut tersimpan di aaa.js.</p>
+                <button type="button" onclick="downloadAaa()" class="btn btn-primary" style="width:100%;"><i class="fa-solid fa-download"></i> Unduh aaa.js Terbaru</button>
+                <button type="button" onclick="resetData()" class="btn btn-danger" style="width:100%;margin-top:.6rem;"><i class="fa-solid fa-rotate-left"></i> Reset ke Data Asli (aaa.js)</button>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="modalFormProduk">
+        <div class="modal-content" style="max-width: 450px;">
+            <button class="modal-close" onclick="closeModal('modalFormProduk')">&times;</button>
+            <h3 id="judulFormProduk" style="margin-bottom: 1rem; color: var(--warna-utama);">Form Produk</h3>
+            <form id="formProduk" onsubmit="saveFormProduk(event)">
+                <input type="hidden" id="editProdukIndex">
+                <div class="form-group"><label>Nama</label><input type="text" id="prodNama" required></div>
+                <div class="form-grid">
+                    <div class="form-group"><label>Berat/Porsi</label><input type="text" id="prodBerat" required></div>
+                    <div class="form-group"><label>Harga</label><input type="text" id="prodHarga" required></div>
+                </div>
+                <div class="form-group">
+                    <label>Foto</label>
+                    <input type="file" id="fileFotoProduk" accept="image/*" onchange="previewProductPhoto(this)">
+                    <input type="hidden" id="prodFoto">
+                    <img id="previewFotoProduk" class="image-preview" src="" alt="" style="margin-top:.5rem;">
+                </div>
+                <div class="form-group"><label>Zoom</label><select id="prodZoom"><option value="1">100%</option><option value="1.15">115%</option></select></div>
+                <div class="form-group"><label>Deskripsi</label><textarea id="prodDesc" rows="2" required></textarea></div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Simpan Produk</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="aaa.js?v=5"></script>
+    <script src="app.js?v=6"></script>
+    <script src="owner.js?v=6"></script>
+</body>
+</html>
