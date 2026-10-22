@@ -8,11 +8,14 @@ var tn = null; try { tn = localStorage.getItem('umkm_cakyat_tema'); } catch (e) 
 var c = T[tn || U.temaWarna] || T.merahpedas, r = document.documentElement.style;
 r.setProperty('--warna-utama', c[0]); r.setProperty('--warna-aksen', c[1]); r.setProperty('--warna-latar', c[2]); r.setProperty('--warna-api', c[3]);
 
-if (U.namaUsaha) { $('nm').textContent = U.namaUsaha; $('nm2').textContent = U.namaUsaha; }
-if (U.berdiri) { $('thn').textContent = U.berdiri; $('tl1').textContent = U.berdiri; }
-if (U.keteranganProduk) $('tl3').textContent = U.keteranganProduk;
-$('yr').textContent = new Date().getFullYear();
-$('waTop').href = $('waBawah').href = wa('Halo Cak Yat, saya mau pesan bakso.');
+function isiUsaha() {
+  if (U.namaUsaha) { $('nm').textContent = U.namaUsaha; $('nm2').textContent = U.namaUsaha; }
+  if (U.berdiri) { $('thn').textContent = U.berdiri; $('tl1').textContent = U.berdiri; }
+  if (U.keteranganProduk) $('tl3').textContent = U.keteranganProduk;
+  $('yr').textContent = new Date().getFullYear();
+  $('waTop').href = $('waBawah').href = wa('Halo Cak Yat, saya mau pesan bakso.');
+}
+isiUsaha();
 
 var B = [
   ['fa-circle', 'Bakso besar', 'Bakso sapi berukuran besar dengan tekstur kenyal sebagai wadah kejutannya.'],
@@ -30,8 +33,8 @@ $('bagian').addEventListener('click', function (e) {
 });
 
 var L = [
-  ['Level 1: Santai', 'Bakso Isi Daging'],
-  ['Level 2: Mulai Berani', 'Bakso Campur'],
+  ['Level 1: Santai', 'Bakso Halus Sapi'],
+  ['Level 2: Mulai Berani', 'Bakso Urat Mantap'],
   ['Level 3: Pedas Mantap', 'Bakso Ranjau Kasar'],
   ['Level 4: Siap Ketagihan', 'Bakso Ranjau Beranak & Bakso Ranjau Kasar'],
   ['Level 5: Tantangan Cak Yat', 'Bakso Ranjau Beranak']
@@ -47,3 +50,6 @@ $('slider').addEventListener('input', level); level();
 
 var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }); }, { threshold: .15 });
 document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+
+/* data terbaru dari cloud (jika sudah dihubungkan) */
+if (window.CLOUD && CLOUD.aktif) CLOUD.ambilUsaha().then(function (u) { if (!u) return; U = Object.assign({}, U, u); isiUsaha(); level(); }).catch(function () {});

@@ -305,12 +305,15 @@
         <div class="modal-content" style="max-width: 380px; text-align: center;">
             <button class="modal-close" onclick="closeModal('modalPassword')">&times;</button>
             <h3 style="margin-bottom: 0.8rem; color: var(--warna-utama);"><i class="fa-solid fa-user-shield"></i> Akses Owner</h3>
-            <p style="font-size: 0.85rem; margin-bottom: 1rem; color: #666;">Masukkan password pemilik untuk mengedit:</p>
+            <p id="ketLogin" style="font-size: 0.85rem; margin-bottom: 1rem; color: #666;">Masukkan password pemilik untuk mengedit:</p>
             <div class="form-group">
-                <input type="password" id="inputPassOwner" placeholder="Password Owner" style="text-align: center; font-size: 1rem;">
+                <input type="email" id="inputEmailOwner" placeholder="Email pemilik" autocomplete="username" style="display:none; text-align: center; font-size: 1rem;">
+            </div>
+            <div class="form-group">
+                <input type="password" id="inputPassOwner" placeholder="Password" autocomplete="current-password" style="text-align: center; font-size: 1rem;">
             </div>
             <p id="errorPass" style="color: #E53E3E; font-size: 0.8rem; display: none; margin-bottom: 0.8rem;">Password salah!</p>
-            <button onclick="checkOwnerPass()" class="btn btn-primary" style="width: 100%;">Masuk Panel</button>
+            <button id="btnMasukOwner" onclick="checkOwnerPass()" class="btn btn-primary" style="width: 100%;">Masuk Panel</button>
         </div>
     </div>
 
@@ -379,10 +382,10 @@
 
             <!-- TAB 4: Password Owner -->
             <div id="tabPassword" class="tab-content">
-                <form onsubmit="saveInfoUsaha(event)">
+                <form onsubmit="gantiPassword(event)">
                     <div class="form-group">
-                        <label>Ganti Password Owner</label>
-                        <input type="text" id="editOwnerPass" placeholder="Masukkan password baru">
+                        <label>Ganti Password Login Owner</label>
+                        <input type="text" id="editOwnerPass" placeholder="Masukkan password baru (min. 6 karakter)" autocomplete="new-password">
                     </div>
                     <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">Simpan Password</button>
                 </form>
@@ -390,9 +393,12 @@
 
             <!-- TAB 5: Publikasi -->
             <div id="tabPublikasi" class="tab-content">
-                <p style="font-size:.88rem;margin-bottom:1rem;">Perubahan dari panel ini tersimpan di browser ini. Agar terlihat di semua perangkat: unduh <b>aaa.js</b>, lalu ganti file aaa.js di GitHub. Password baru juga ikut tersimpan di aaa.js.</p>
-                <button type="button" onclick="downloadAaa()" class="btn btn-primary" style="width:100%;"><i class="fa-solid fa-download"></i> Unduh aaa.js Terbaru</button>
-                <button type="button" onclick="resetData()" class="btn btn-danger" style="width:100%;margin-top:.6rem;"><i class="fa-solid fa-rotate-left"></i> Reset ke Data Asli (aaa.js)</button>
+                <p id="statusCloud" style="font-size:.88rem;font-weight:700;margin-bottom:.6rem;"></p>
+                <p id="ketPublikasi" style="font-size:.85rem;margin-bottom:1rem;"></p>
+                <button type="button" id="btnSeed" onclick="unggahAwal()" class="btn btn-primary" style="width:100%;"><i class="fa-solid fa-cloud-arrow-up"></i> Unggah Data Awal ke Cloud (sekali saja)</button>
+                <button type="button" onclick="downloadAaa()" class="btn" style="width:100%;margin-top:.6rem;"><i class="fa-solid fa-download"></i> Unduh aaa.js (cadangan)</button>
+                <button type="button" onclick="keluarOwner()" class="btn btn-warning" style="width:100%;margin-top:.6rem;"><i class="fa-solid fa-right-from-bracket"></i> Keluar dari Panel</button>
+                <button type="button" onclick="resetData()" class="btn btn-danger" style="width:100%;margin-top:.6rem;"><i class="fa-solid fa-rotate-left"></i> Hapus Data Tersimpan di Browser Ini</button>
             </div>
 
         </div>
@@ -423,7 +429,9 @@
     </div>
 
     <script src="aaa.js?v=5"></script>
-    <script src="app.js?v=6"></script>
-    <script src="owner.js?v=6"></script>
+    <script src="firebase-config.js?v=7"></script>
+    <script src="cloud.js?v=7"></script>
+    <script src="app.js?v=7"></script>
+    <script src="owner.js?v=7"></script>
 </body>
 </html>

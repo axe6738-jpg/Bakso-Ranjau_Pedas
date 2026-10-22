@@ -194,6 +194,19 @@ function switchTab(e, id) {
     e.currentTarget.classList.add('active'); $(id).classList.add('active');
 }
 
+/* sinkron dari cloud: data terbaru menggantikan tampilan awal (aaa.js / cache) */
+function sinkronCloud() {
+    if (!window.CLOUD || !CLOUD.aktif) return;
+    CLOUD.muat().then(function (c) {
+        if (!c) return;
+        var baru = { usaha: Object.assign({}, BASE.usaha, c.usaha), produk: c.produk };
+        if (JSON.stringify(baru) === JSON.stringify(D)) return;
+        D = baru; render();
+        if ($('modalDashboard').classList.contains('active') && typeof renderAdmin === 'function') renderAdmin();
+        idb('readwrite', function (s) { return s.put(D, KEY); }, function () {});
+    }).catch(function () {});
+}
+
 /* ---------- MULAI ---------- */
 /* menu aktif mengikuti bagian yang sedang dilihat */
 function spy() {
@@ -217,7 +230,7 @@ function mulai() {
 idb('readonly', function (s) { return s.get(KEY); }, function (v) {
     if (!v) { try { v = JSON.parse(localStorage.getItem(KEY) || 'null'); } catch (e) {} }
     if (v && v.usaha && Array.isArray(v.produk)) D = v;
-    mulai();
+    mulai(); sinkronCloud();
 });
 
 /* pengecekan otomatis */
