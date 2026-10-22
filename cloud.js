@@ -106,10 +106,11 @@
                 return arr;
             });
         },
-       muat: function () {
+      muat: function () {
             return Promise.all([CLOUD.ambilUsaha(), CLOUD.ambilProduk()]).then(function (r) { 
                 return { usaha: r[0] || {}, produk: r[1] || [] }; 
             });
+        },
         /* ---- tulis (khusus pemilik yang sudah login) ---- */
         simpanUsaha: function (u) {
             var b = {}; Object.keys(u).forEach(function (k) { if (k !== 'ownerPass') b[k] = u[k]; });
