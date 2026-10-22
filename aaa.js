@@ -39,19 +39,19 @@ window.UMKM_DATA = {
             "zoom": 1
         },
         {
-            "nama": "Bakso Halus Sapi",
+            "nama": "Bakso Isi Daging",
             "berat": "1 Porsi",
             "harga": "Rp 12.000",
             "deskripsi": "Bakso daging sapi halus bertekstur lembut dan kenyal alami dipadukan dengan kuah segar.",
-            "foto": "img/Bakso Halus Sapi.jpg",
+            "foto": "img/Bakso Isi Daging.jpg",
             "zoom": 1
         },
         {
-            "nama": "Bakso Urat Mantap",
+            "nama": "Bakso Campur",
             "berat": "1 Porsi",
             "harga": "Rp 14.000",
             "deskripsi": "Bakso urat sapi asli dengan tekstur kenyal dan rasa gurih yang memanjakan lidah.",
-            "foto": "img/Bakso Urat Mantap.jpg",
+            "foto": "img/Bakso Campur.jpg",
             "zoom": 1
         },
         {
