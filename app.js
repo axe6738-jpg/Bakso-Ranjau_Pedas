@@ -178,6 +178,8 @@ function maskotReaksi(lv) {
 }
 function maskotInit() {
     var m = $('maskot'); if (!m) return;
+    var tg = null;
+    window.addEventListener('scroll', function () { document.body.classList.add('menggulir'); clearTimeout(tg); tg = setTimeout(function () { document.body.classList.remove('menggulir'); }, 700); }, { passive: true });
     m.addEventListener('click', function () { maskotBicara(MASKOT_TIPS[maskotIdx++ % MASKOT_TIPS.length], maskotIdx % 2 ? 'nyengir' : 'senyum', 7000); });
     m.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); m.click(); } });
     var x = $('maskotTutup'); if (x) x.addEventListener('click', function (e) { e.stopPropagation(); maskotMati = true; m.style.display = 'none'; });
