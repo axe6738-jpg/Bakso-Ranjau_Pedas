@@ -97,7 +97,7 @@
         },
         /* ---- baca (publik) ---- */
         ambilUsaha: function () {
-            return http('GET', url('/situs/usaha')).then(dariFS, function (e) { if (e.status === 404) return null; throw e; });
+    return http('GET', url('/situs/usaha')).then(dariFS, function (e) { if (e.status === 404) return {}; throw e; });
         },
         ambilProduk: function () {
             return http('GET', url('/produk?pageSize=200')).then(function (j) {
